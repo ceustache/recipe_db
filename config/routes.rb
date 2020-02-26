@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :installs
   resources :comments
   devise_for :users
   resources :recipes
