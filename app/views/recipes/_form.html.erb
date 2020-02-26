@@ -35,6 +35,22 @@
     <%= render 'step_fields', f: step %>
   <% end %>
 
+  <div class="form-group">
+
+  <%= form.file_field :image %>
+
+  <% if @recipe.image? %>
+
+    <%= image_tag @recipe.image.url, class: "recipe-show" %>
+
+    <%= form.check_box :remove_image %>
+
+      Remove Image
+
+  <% end %>
+
+</div>
+
   <div class="links">
     <%= link_to_add_association 'Add Step', form, :steps %>
   </div>
@@ -45,18 +61,3 @@
   </div>
 <% end %>
 
-<div class="form-group">
-
-    <%= form.file_field :image %>
-
-    <% if @recipe.image? %>
-
-      <%= image_tag @recipe.image.url, class: "recipe-show" %>
-
-      <%= form.check_box :remove_image %>
-
-        Remove Image
-
-    <% end %>
-
- </div>
